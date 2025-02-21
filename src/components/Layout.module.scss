@@ -1,0 +1,21 @@
+@use "../styles/mixins";
+@use "../styles/colors";
+
+.header {
+  background-color: #303030;
+  padding: 1rem;
+  display: flex;
+}
+
+.nav {
+  max-width: 1280px;
+}
+
+.link {
+  font-size: 2rem;
+  color: colors.$primary-yellow;
+  text-decoration: none;
+  padding: 1rem;
+
+  @include mixins.focus-styles;
+}

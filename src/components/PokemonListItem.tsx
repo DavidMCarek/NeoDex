@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Pokemon } from "../types/pokeApiList";
-import { getOnePokemon } from "../services/pokemonService";
+import { getOnePokemon, urlToDexNo } from "../services/pokemonService";
 import { PokemonDetailResponse } from "../types/pokeApiDetail";
+import { Link } from "react-router-dom";
+import styles from "./PokemonListItem.module.scss";
 
 type Props = {
   pokemon: Pokemon;
 };
-
-type DetailModel = {};
 
 const PokemonListItem: React.FC<Props> = ({ pokemon }) => {
   const [details, setDetails] = useState<PokemonDetailResponse | undefined>();
@@ -21,16 +21,19 @@ const PokemonListItem: React.FC<Props> = ({ pokemon }) => {
         return;
       }
 
-      setDetails(details);
+      setDetails(response.data);
     };
 
     fetchPokemonDetail();
   }, []);
 
   return (
-    <li>
-      <strong>{pokemon.name}</strong>
-      <img src={details?.sprites.front_default} />
+    <li className={styles.item}>
+      <Link className={styles.link} to={`/pokemon/${pokemon.name}`}>
+        <strong className={styles.name}>{pokemon.name}</strong>
+        <span>DexNo: {urlToDexNo(pokemon.url)}</span>
+        <img className={styles.sprite} src={details?.sprites.front_default} />
+      </Link>
     </li>
   );
 };

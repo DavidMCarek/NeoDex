@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getSomePokemon } from "../services/pokemonService";
 import { Pokemon } from "../types/pokeApiList";
 import PokemonListItem from "../components/PokemonListItem";
+import styles from "./PokemonList.module.scss";
 
 const PokemonList = () => {
   const [page, setPage] = useState(1);
@@ -23,14 +24,11 @@ const PokemonList = () => {
   }, [page]);
 
   return (
-    <main>
-      <h1>Neo Dex</h1>
-      <ol>
-        {pokemonList.map((pokemon) => (
-          <PokemonListItem key={pokemon.name} pokemon={pokemon} />
-        ))}
-      </ol>
-    </main>
+    <ol className={styles.list}>
+      {pokemonList.map((pokemon) => (
+        <PokemonListItem key={pokemon.name} pokemon={pokemon} />
+      ))}
+    </ol>
   );
 };
 

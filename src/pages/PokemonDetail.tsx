@@ -24,9 +24,10 @@ const PokemonDetail: React.FC = () => {
   }, [name]);
 
   return (
-    <main>
+    <>
       <h1>{pokemon?.name}</h1>
-    </main>
+      <img src={pokemon?.sprites.front_default} />
+    </>
   );
 };
 

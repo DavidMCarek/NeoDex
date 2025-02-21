@@ -1,0 +1,11 @@
+@use "../styles/colors";
+
+.item {
+  border-bottom: 1px solid colors.$border-light;
+  display: grid;
+}
+
+.link {
+  text-decoration: none;
+  color: colors.$dark-blue;
+}

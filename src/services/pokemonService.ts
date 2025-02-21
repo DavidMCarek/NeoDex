@@ -24,3 +24,10 @@ export function getOnePokemon(
   const endpointUrl = new URL(`${baseUrl}/pokemon/${name}/`);
   return apiGet(endpointUrl);
 }
+
+export function urlToDexNo(urlStr: string) {
+  const url = new URL(urlStr);
+  const path = url.pathname;
+  const pathParts = path.split("/").filter(Boolean);
+  return pathParts[pathParts.length - 1];
+}
