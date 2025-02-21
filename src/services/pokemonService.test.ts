@@ -1,5 +1,5 @@
 import apiGet from "../utils/apiGet";
-import { fetchSomePokemon } from "./pokemonService";
+import { getSomePokemon } from "./pokemonService";
 
 vi.mock("../utils/apiGet", () => ({
   default: vi.fn(),
@@ -14,7 +14,7 @@ describe("pokemonService", () => {
     it("should call apiGet with correct query params", async () => {
       const url = new URL("https://pokeapi.co/api/v2/pokemon/?limit=10&offset=20");
 
-      await fetchSomePokemon(3);
+      await getSomePokemon(3);
 
       expect(apiGet).toHaveBeenCalledWith(url);
     });

@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import PokemonList from "./pages/PokemonList";
+import PokemonDetail from "./pages/PokemonDetail";
 
 function App() {
-  const [page, setPage] = useState(1);
-
   return (
-    <main>
-      <h1>Neo Dex</h1>
-      <ol>
-        <li></li>
-      </ol>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PokemonList />} />
+        <Route path="/pokemon/:name" element={<PokemonDetail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
