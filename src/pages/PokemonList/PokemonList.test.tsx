@@ -4,17 +4,17 @@ import { ErrorType } from "../../types/serviceResponse";
 import { Pokemon } from "../../types/pokeApiList";
 import PokemonList from "./PokemonList";
 
-vi.mock("../services/pokemonService", () => ({
+vi.mock("../../services/pokemonService", () => ({
   getSomePokemon: vi.fn(),
 }));
 
-vi.mock("../components/PokemonListItem", () => ({
+vi.mock("../../components/PokemonListItem", () => ({
   default: ({ pokemon }: { pokemon: Pokemon }) => (
     <li data-testid={pokemon.name}>{JSON.stringify(pokemon)}</li>
   ),
 }));
 
-vi.mock("../components/Pagination", () => ({
+vi.mock("../../components/Pagination", () => ({
   default: ({ page, lastPage }: { page: number; lastPage: number }) => (
     <div>{`page: ${page} last page: ${lastPage}`}</div>
   ),

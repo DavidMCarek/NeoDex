@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOnePokemon } from "../services/pokemonService";
-import { PokemonDetailResponse } from "../types/pokeApiDetail";
+import { getOnePokemon } from "../../services/pokemonService";
+import { PokemonDetailResponse } from "../../types/pokeApiDetail";
 
 const PokemonDetail: React.FC = () => {
   const { name } = useParams();
