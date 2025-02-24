@@ -39,7 +39,7 @@ const PokemonList = () => {
   }, [pageNumber]);
 
   return (
-    <>
+    <main className={styles.main}>
       <h1 className={styles.header}>Pokemon</h1>
       {errorMessage && <p>{errorMessage}</p>}
       {pokemonList.length > 0 && (
@@ -50,7 +50,7 @@ const PokemonList = () => {
         </ol>
       )}
       <Pagination page={pageNumber} lastPage={lastPage} />
-    </>
+    </main>
   );
 };
 

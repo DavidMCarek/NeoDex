@@ -10,15 +10,14 @@
   grid-template-areas: "previous page next";
   gap: 1rem;
   justify-content: center;
-  background-color: white;
+  background-color: colors.$white;
   max-width: sizes.$content-max;
-  padding-bottom: 32px !important; // overriding the layout padding
+
+  @include mixins.container-padding;
 
   @media (min-width: breakpoints.$sm) {
     grid-template-columns: 8rem 3rem 8rem;
   }
-
-  @include mixins.layout-padding;
 }
 
 .previous {

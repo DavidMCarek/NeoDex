@@ -1,0 +1,283 @@
+@use "../../styles/breakpoints";
+@use "../../styles/mixins";
+@use "../../styles/sizes";
+@use "../../styles/colors";
+@use "../../styles/functions";
+
+.main {
+  display: grid;
+
+  @include mixins.layout-constrained;
+}
+
+.header {
+  text-transform: capitalize;
+  margin: 0 auto;
+}
+
+.sprite {
+  margin: 0 auto;
+}
+
+.types {
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.type {
+  border-radius: 25px;
+  padding: 8px;
+  font-weight: bold;
+
+  &[class~="normal"] {
+    background-color: colors.$type-normal;
+    color: functions.contrast-color(colors.$type-normal);
+  }
+
+  &[class~="fighting"] {
+    background-color: colors.$type-fighting;
+    color: functions.contrast-color(colors.$type-fighting);
+  }
+
+  &[class~="flying"] {
+    background-color: colors.$type-flying;
+    color: functions.contrast-color(colors.$type-flying);
+  }
+
+  &[class~="poison"] {
+    background-color: colors.$type-poison;
+    color: functions.contrast-color(colors.$type-poison);
+  }
+
+  &[class~="ground"] {
+    background-color: colors.$type-ground;
+    color: functions.contrast-color(colors.$type-ground);
+  }
+
+  &[class~="rock"] {
+    background-color: colors.$type-rock;
+    color: functions.contrast-color(colors.$type-rock);
+  }
+
+  &[class~="bug"] {
+    background-color: colors.$type-bug;
+    color: functions.contrast-color(colors.$type-bug);
+  }
+
+  &[class~="ghost"] {
+    background-color: colors.$type-ghost;
+    color: functions.contrast-color(colors.$type-ghost);
+  }
+
+  &[class~="steel"] {
+    background-color: colors.$type-steel;
+    color: functions.contrast-color(colors.$type-steel);
+  }
+
+  &[class~="fire"] {
+    background-color: colors.$type-fire;
+    color: functions.contrast-color(colors.$type-fire);
+  }
+
+  &[class~="water"] {
+    background-color: colors.$type-water;
+    color: functions.contrast-color(colors.$type-water);
+  }
+
+  &[class~="grass"] {
+    background-color: colors.$type-grass;
+    color: functions.contrast-color(colors.$type-grass);
+  }
+
+  &[class~="electric"] {
+    background-color: colors.$type-electric;
+    color: functions.contrast-color(colors.$type-electric);
+  }
+
+  &[class~="psychic"] {
+    background-color: colors.$type-psychic;
+    color: functions.contrast-color(colors.$type-psychic);
+  }
+
+  &[class~="ice"] {
+    background-color: colors.$type-ice;
+    color: functions.contrast-color(colors.$type-ice);
+  }
+
+  &[class~="dragon"] {
+    background-color: colors.$type-dragon;
+    color: functions.contrast-color(colors.$type-dragon);
+  }
+
+  &[class~="dark"] {
+    background-color: colors.$type-dark;
+    color: functions.contrast-color(colors.$type-dark);
+  }
+
+  &[class~="fairy"] {
+    background-color: colors.$type-fairy;
+    color: functions.contrast-color(colors.$type-fairy);
+  }
+
+  &[class~="stellar"] {
+    background-color: colors.$type-stellar;
+    color: functions.contrast-color(colors.$type-stellar);
+  }
+
+  &[class~="unknown"] {
+    background-color: colors.$type-unknown;
+    color: functions.contrast-color(colors.$type-unknown);
+  }
+}
+
+.descriptionList {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0 auto;
+  column-gap: 0.5rem;
+}
+
+.descriptionTitle {
+  font-weight: bold;
+  text-align: end;
+}
+
+.descriptionDetails {
+  text-align: start;
+  margin: 0;
+}
+
+.gamesHeader {
+  text-align: center;
+}
+
+.games {
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.game {
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 8px;
+  font-weight: bold;
+
+  &[class~="red"] {
+    background-color: colors.$game-red;
+    color: functions.contrast-color(colors.$game-red);
+  }
+
+  &[class~="blue"] {
+    background-color: colors.$game-blue;
+    color: functions.contrast-color(colors.$game-blue);
+  }
+
+  &[class~="yellow"] {
+    background-color: colors.$game-yellow;
+    color: functions.contrast-color(colors.$game-yellow);
+  }
+
+  &[class~="gold"] {
+    background-color: colors.$game-gold;
+    color: functions.contrast-color(colors.$game-gold);
+  }
+
+  &[class~="silver"] {
+    background-color: colors.$game-silver;
+    color: functions.contrast-color(colors.$game-silver);
+  }
+
+  &[class~="crystal"] {
+    background-color: colors.$game-crystal;
+    color: functions.contrast-color(colors.$game-crystal);
+  }
+
+  &[class~="ruby"] {
+    background-color: colors.$game-ruby;
+    color: functions.contrast-color(colors.$game-ruby);
+  }
+
+  &[class~="sapphire"] {
+    background-color: colors.$game-sapphire;
+    color: functions.contrast-color(colors.$game-sapphire);
+  }
+
+  &[class~="emerald"] {
+    background-color: colors.$game-emerald;
+    color: functions.contrast-color(colors.$game-emerald);
+  }
+
+  &[class~="firered"] {
+    background-color: colors.$game-firered;
+    color: functions.contrast-color(colors.$game-firered);
+  }
+
+  &[class~="leafgreen"] {
+    background-color: colors.$game-leafgreen;
+    color: functions.contrast-color(colors.$game-leafgreen);
+  }
+
+  &[class~="diamond"] {
+    background-color: colors.$game-diamond;
+    color: functions.contrast-color(colors.$game-diamond);
+  }
+
+  &[class~="pearl"] {
+    background-color: colors.$game-pearl;
+    color: functions.contrast-color(colors.$game-pearl);
+  }
+
+  &[class~="platinum"] {
+    background-color: colors.$game-platinum;
+    color: functions.contrast-color(colors.$game-platinum);
+  }
+
+  &[class~="heartgold"] {
+    background-color: colors.$game-heartgold;
+    color: functions.contrast-color(colors.$game-heartgold);
+  }
+
+  &[class~="soulsilver"] {
+    background-color: colors.$game-soulsilver;
+    color: functions.contrast-color(colors.$game-soulsilver);
+  }
+
+  &[class~="black"],
+  &[class~="black-2"] {
+    background-color: colors.$game-black;
+    color: functions.contrast-color(colors.$game-black);
+  }
+
+  &[class~="white"],
+  &[class~="white-2"] {
+    background-color: colors.$game-white;
+    color: functions.contrast-color(colors.$game-white);
+  }
+
+  &[class~="colosseum"] {
+    background-color: colors.$game-colosseum;
+    color: functions.contrast-color(colors.$game-colosseum);
+  }
+
+  &[class~="xd"] {
+    background-color: colors.$game-xd;
+    color: functions.contrast-color(colors.$game-xd);
+  }
+}
+
+.cryHeader {
+  text-align: center;
+}
+
+.cry {
+  margin: 0 auto;
+}

@@ -1,0 +1,9 @@
+@use "sass:color";
+
+@function contrast-color($background-color) {
+  @if (color.channel($background-color, "lightness", $space: hsl) > 50) {
+    @return #000;
+  } @else {
+    @return #fff;
+  }
+}

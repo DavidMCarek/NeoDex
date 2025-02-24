@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "./colors";
 @use "./breakpoints";
+@use "./sizes";
 
 @mixin focus-styles {
   &:focus,
@@ -15,10 +16,25 @@
   }
 }
 
-@mixin layout-padding {
-  padding: 8px 8px 0 8px;
+@mixin layout-constrained {
+  max-width: sizes.$content-max;
+  background-color: colors.$white;
+  margin: 0;
+  padding: 8px 8px 32px 8px;
 
   @media (min-width: breakpoints.$sm) {
-    padding: 16px 16px 0 16px;
+    padding: 16px 16px 64px 16px;
+  }
+
+  @media (min-width: breakpoints.$md) {
+    margin: 0 auto;
+  }
+}
+
+@mixin container-padding {
+  padding-top: 8px;
+
+  @media (min-width: breakpoints.$sm) {
+    padding-top: 16px;
   }
 }

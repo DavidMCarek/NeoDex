@@ -2,12 +2,15 @@
 @use "../../styles/mixins";
 @use "../../styles/sizes";
 
+.main {
+  @include mixins.layout-constrained;
+}
+
 .header {
   margin: 0;
-  max-width: sizes.$content-max;
   background-color: white;
 
-  @include mixins.layout-padding;
+  @include mixins.container-padding;
 
   @media (min-width: breakpoints.$md) {
     margin: 0 auto;
@@ -18,10 +21,9 @@
   list-style: none;
   display: grid;
   margin: 0;
-  max-width: sizes.$content-max;
-  background-color: white;
+  padding-left: 0;
 
-  @include mixins.layout-padding;
+  @include mixins.container-padding;
 
   @media (min-width: breakpoints.$md) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
