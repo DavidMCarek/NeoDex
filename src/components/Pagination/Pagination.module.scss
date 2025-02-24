@@ -1,0 +1,23 @@
+@use "../styles/mixins";
+@use "../styles/colors";
+
+.nav {
+  padding: 0 2rem 2rem 2rem;
+  display: flex;
+}
+
+.previous,
+.next {
+  border: none;
+  font-size: 1.5rem;
+
+  @include mixins.focus-styles;
+}
+
+.page {
+  font-size: 1.5rem;
+  background-color: colors.$dark-blue;
+  color: colors.$primary-yellow;
+  padding: 1rem;
+  border-radius: 4px;
+}

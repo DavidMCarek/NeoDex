@@ -8,3 +8,7 @@ export interface ServiceResponse<TData> {
   errorType?: ErrorType;
   data?: TData;
 }
+
+export type PaginatedServiceResponse<TData> = ServiceResponse<TData> & {
+  lastPage: number;
+};

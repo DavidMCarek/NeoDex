@@ -1,0 +1,56 @@
+@use "../styles/colors";
+@use "../styles/mixins";
+
+$sprite-size: 96px;
+
+.item {
+  padding: 0.5rem;
+  border-bottom: 1px solid colors.$border-light;
+
+  &:first-child {
+    border-top: 1px solid colors.$border-light;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: colors.$dark-blue;
+  display: grid;
+  grid-template:
+    "sprite name"
+    "sprite dexNo";
+  row-gap: 4px;
+  column-gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  min-height: $sprite-size;
+
+  @include mixins.focus-styles;
+}
+
+.dexNo {
+  grid-area: dexNo;
+}
+
+.name {
+  grid-area: name;
+  display: flex;
+  align-items: end;
+  text-transform: capitalize;
+}
+
+.sprite,
+.noImage {
+  grid-area: sprite;
+  margin-left: auto;
+  height: $sprite-size;
+  width: $sprite-size;
+}
+
+.noImage {
+  border: 1px solid colors.$border-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}

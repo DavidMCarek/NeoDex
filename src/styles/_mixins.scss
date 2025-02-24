@@ -1,9 +1,10 @@
+@use "sass:color";
 @use "./colors";
 
 @mixin focus-styles {
   &:focus,
   &:active {
-    outline: 2px solid transparentize(colors.$primary-red, 0.4);
+    outline: 2px solid color.adjust(colors.$primary-red, $alpha: -0.4);
     outline-offset: 3px;
     box-shadow:
       0 0 0 3px colors.$primary-red,

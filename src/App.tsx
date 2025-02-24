@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<PokemonList />} />
+          <Route path="/dex/:page" element={<PokemonList />} />
           <Route path="/pokemon/:name" element={<PokemonDetail />} />
         </Route>
       </Routes>
