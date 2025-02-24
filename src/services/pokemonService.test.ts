@@ -15,7 +15,7 @@ describe("pokemonService", () => {
       vi.mocked(apiGet).mockResolvedValue({
         hasError: false,
       });
-      const url = new URL("https://pokeapi.co/api/v2/pokemon/?limit=10&offset=20");
+      const url = new URL("https://pokeapi.co/api/v2/pokemon/?limit=16&offset=32");
 
       await getSomePokemon(3);
 
@@ -26,11 +26,11 @@ describe("pokemonService", () => {
       vi.mocked(apiGet).mockResolvedValue({
         hasError: false,
         data: {
-          count: 11,
+          count: 17,
         },
       });
 
-      const result = await getSomePokemon(3);
+      const result = await getSomePokemon(1);
 
       expect(result.lastPage).toBe(2);
     });

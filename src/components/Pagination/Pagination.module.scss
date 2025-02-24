@@ -1,23 +1,62 @@
 @use "../../styles/mixins";
 @use "../../styles/colors";
+@use "../../styles/breakpoints";
+@use "../../styles/sizes";
 
 .nav {
-  padding: 0 2rem 2rem 2rem;
-  display: flex;
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 7rem 2rem 7rem;
+  grid-template-areas: "previous page next";
+  gap: 1rem;
+  justify-content: center;
+  background-color: white;
+  max-width: sizes.$content-max;
+  padding-bottom: 32px !important; // overriding the layout padding
+
+  @media (min-width: breakpoints.$sm) {
+    grid-template-columns: 8rem 3rem 8rem;
+  }
+
+  @include mixins.layout-padding;
+}
+
+.previous {
+  justify-content: end;
+  grid-area: previous;
+}
+
+.next {
+  justify-content: start;
+  grid-area: next;
+}
+
+.page {
+  grid-area: page;
 }
 
 .previous,
 .next {
   border: none;
-  font-size: 1.5rem;
+  text-decoration: none;
+  background-color: colors.$dark-blue;
+  color: colors.$primary-yellow;
+  border-radius: 4px;
+  align-items: center;
 
   @include mixins.focus-styles;
 }
 
+.previous,
+.next,
 .page {
-  font-size: 1.5rem;
-  background-color: colors.$dark-blue;
-  color: colors.$primary-yellow;
-  padding: 1rem;
-  border-radius: 4px;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+  display: inline-flex;
+  justify-content: center;
+
+  @media (min-width: breakpoints.$sm) {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
 }

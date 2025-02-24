@@ -1,7 +1,7 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
-import { getSomePokemon } from "../services/pokemonService";
-import { ErrorType } from "../types/serviceResponse";
-import { Pokemon } from "../types/pokeApiList";
+import { getSomePokemon } from "../../services/pokemonService";
+import { ErrorType } from "../../types/serviceResponse";
+import { Pokemon } from "../../types/pokeApiList";
 import PokemonList from "./PokemonList";
 
 vi.mock("../services/pokemonService", () => ({

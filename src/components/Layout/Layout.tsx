@@ -11,7 +11,7 @@ const Layout: React.FC = () => {
           </Link>
         </nav>
       </header>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
     </>

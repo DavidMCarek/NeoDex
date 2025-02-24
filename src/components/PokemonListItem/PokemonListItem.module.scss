@@ -1,15 +1,11 @@
 @use "../../styles/colors";
 @use "../../styles/mixins";
+@use "../../styles/breakpoints";
 
 $sprite-size: 96px;
 
 .item {
   padding: 0.5rem;
-  border-bottom: 1px solid colors.$border-light;
-
-  &:first-child {
-    border-top: 1px solid colors.$border-light;
-  }
 }
 
 .link {
@@ -25,6 +21,15 @@ $sprite-size: 96px;
   min-height: $sprite-size;
 
   @include mixins.focus-styles;
+
+  @media (min-width: breakpoints.$md) {
+    grid-template:
+      "sprite"
+      "name"
+      "dexNo";
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
 }
 
 .dexNo {
@@ -36,6 +41,10 @@ $sprite-size: 96px;
   display: flex;
   align-items: end;
   text-transform: capitalize;
+
+  @media (min-width: breakpoints.$md) {
+    justify-content: center;
+  }
 }
 
 .sprite,
@@ -44,6 +53,10 @@ $sprite-size: 96px;
   margin-left: auto;
   height: $sprite-size;
   width: $sprite-size;
+
+  @media (min-width: breakpoints.$md) {
+    margin: 0 auto;
+  }
 }
 
 .noImage {

@@ -1,0 +1,32 @@
+@use "../../styles/breakpoints";
+@use "../../styles/mixins";
+@use "../../styles/sizes";
+
+.header {
+  margin: 0;
+  max-width: sizes.$content-max;
+  background-color: white;
+
+  @include mixins.layout-padding;
+
+  @media (min-width: breakpoints.$md) {
+    margin: 0 auto;
+  }
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  margin: 0;
+  max-width: sizes.$content-max;
+  background-color: white;
+
+  @include mixins.layout-padding;
+
+  @media (min-width: breakpoints.$md) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 16px;
+  }
+}

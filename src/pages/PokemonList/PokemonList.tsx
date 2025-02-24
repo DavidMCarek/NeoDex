@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { getSomePokemon } from "../services/pokemonService";
-import { Pokemon } from "../types/pokeApiList";
-import PokemonListItem from "../components/PokemonListItem";
+import { getSomePokemon } from "../../services/pokemonService";
+import { Pokemon } from "../../types/pokeApiList";
+import PokemonListItem from "../../components/PokemonListItem";
 import styles from "./PokemonList.module.scss";
-import Pagination from "../components/Pagination";
+import Pagination from "../../components/Pagination";
 import { useParams } from "react-router-dom";
-import { ErrorType } from "../types/serviceResponse";
+import { ErrorType } from "../../types/serviceResponse";
 
 const PokemonList = () => {
   const { page } = useParams();

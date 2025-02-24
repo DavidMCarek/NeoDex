@@ -4,7 +4,7 @@ import { PaginatedServiceResponse, ServiceResponse } from "../types/serviceRespo
 import apiGet from "../utils/apiGet";
 
 const baseUrl = "https://pokeapi.co/api/v2/";
-const pokemonPerPage = 10;
+const pokemonPerPage = 16;
 
 export async function getSomePokemon(
   page: number,

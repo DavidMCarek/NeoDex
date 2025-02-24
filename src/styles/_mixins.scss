@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "./colors";
+@use "./breakpoints";
 
 @mixin focus-styles {
   &:focus,
@@ -11,5 +12,13 @@
       0 0 4px 6px colors.$primary-red;
     position: relative;
     z-index: 1000;
+  }
+}
+
+@mixin layout-padding {
+  padding: 8px 8px 0 8px;
+
+  @media (min-width: breakpoints.$sm) {
+    padding: 16px 16px 0 16px;
   }
 }
