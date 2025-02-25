@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+# NeoDex
+This repo provides a minimalist frontend for the https://pokeapi.co/ API.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Running
+To run the project have the latest node version installed (v23).
 
-Currently, two official plugins are available:
+1. `npm ci`
+2. `npm run build`
+3. `npm run preview`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Testing
+Assuming you've already run `npm ci` to collect dependencies just run `npm run test` to run all unit tests for the project.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Summary
+Navigate around the site with pagination to view the list of all pokemon entries. Clicking a Pokemon takes you to a detail page for that Pokemon where some basic details a displayed like the Pokemon's sprite, height, weight, types, games that pokemon has appeared in, and the Pokemon's cry.
