@@ -22,7 +22,7 @@ const PokemonList = () => {
       if (pokemonListResponse.hasError) {
         switch (pokemonListResponse.errorType) {
           case ErrorType.HttpError:
-            setErrorMessage("Sorry, the service is unavailable");
+            setErrorMessage("Sorry, the service is unavailable.");
             break;
           case ErrorType.InternalError:
             setErrorMessage("Something went wrong.");

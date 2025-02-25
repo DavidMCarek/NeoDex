@@ -69,7 +69,7 @@ describe("PokemonList", () => {
     await act(async () => await render(<PokemonList />));
 
     await waitFor(() => {
-      expect(screen.getByText("Sorry, the service is unavailable")).toBeInTheDocument();
+      expect(screen.getByText("Sorry, the service is unavailable.")).toBeInTheDocument();
     });
   });
 
