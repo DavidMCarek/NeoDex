@@ -1,0 +1,17 @@
+@use "../../styles/sizes";
+@use "../../styles/colors";
+
+.sprite,
+.noImage {
+  height: sizes.$sprite;
+  width: sizes.$sprite;
+}
+
+.noImage {
+  border: 1px solid colors.$border-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}

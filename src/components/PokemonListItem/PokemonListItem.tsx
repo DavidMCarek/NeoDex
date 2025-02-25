@@ -4,23 +4,25 @@ import { getOnePokemon } from "../../services/pokemonService";
 import { Link } from "react-router-dom";
 import styles from "./PokemonListItem.module.scss";
 import urlToDexNo from "../../utils/urlToDexNo";
+import Sprite from "../Sprite";
+import { PokemonDetailResponse } from "../../types/pokeApiDetail";
+import { ServiceResponse } from "../../types/serviceResponse";
 
 type Props = {
   pokemon: Pokemon;
 };
 
 const PokemonListItem: React.FC<Props> = ({ pokemon }) => {
-  const [sprite, setSprite] = useState<string | undefined>();
-  const [detailFetched, setDetailFetched] = useState(false);
+  const [response, setResponse] = useState<
+    ServiceResponse<PokemonDetailResponse> | undefined
+  >();
 
   useEffect(() => {
     const fetchPokemonDetail = async () => {
       const response = await getOnePokemon(pokemon.name);
-
-      // This could be improved but I assume it's sufficient to just say there's
-      // no image if this call fails for whatever reason.
-      if (!response.hasError) setSprite(response.data?.sprites.front_default);
-      setDetailFetched(true);
+      // We're basically just going to ignore any error here. If the call fails
+      // the Sprite component will just assume there's no image.
+      setResponse(response);
     };
 
     fetchPokemonDetail();
@@ -29,14 +31,13 @@ const PokemonListItem: React.FC<Props> = ({ pokemon }) => {
   return (
     <li className={styles.item}>
       <Link className={styles.link} to={`/pokemon/${pokemon.name}`}>
-        {sprite && (
-          <img
+        {response && (
+          <Sprite
+            src={response?.data?.sprites?.front_default}
+            pokemonName={pokemon.name}
             className={styles.sprite}
-            src={sprite}
-            alt={`Sprite for ${pokemon.name}`}
           />
         )}
-        {!sprite && detailFetched && <span className={styles.noImage}>No image</span>}
         <strong className={styles.name}>{pokemon.name}</strong>
         <span className={styles.dexNo}>DexNo: {urlToDexNo(pokemon.url)}</span>
       </Link>

@@ -1,8 +1,7 @@
 @use "../../styles/colors";
 @use "../../styles/mixins";
 @use "../../styles/breakpoints";
-
-$sprite-size: 96px;
+@use "../../styles/sizes";
 
 .item {
   padding: 0.5rem;
@@ -18,7 +17,7 @@ $sprite-size: 96px;
   row-gap: 4px;
   column-gap: 8px;
   grid-template-columns: 1fr 1fr;
-  min-height: $sprite-size;
+  min-height: sizes.$sprite;
 
   @include mixins.focus-styles;
 
@@ -47,23 +46,11 @@ $sprite-size: 96px;
   }
 }
 
-.sprite,
-.noImage {
+.sprite {
   grid-area: sprite;
   margin-left: auto;
-  height: $sprite-size;
-  width: $sprite-size;
 
   @media (min-width: breakpoints.$md) {
     margin: 0 auto;
   }
-}
-
-.noImage {
-  border: 1px solid colors.$border-light;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  box-sizing: border-box;
 }

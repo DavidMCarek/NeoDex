@@ -5,6 +5,7 @@ import { PokemonDetailResponse } from "../../types/pokeApiDetail";
 import styles from "./PokemonDetail.module.scss";
 import { convertDmToFeetInches, convertHgToLbs } from "../../utils/unitConversion";
 import { ErrorType } from "../../types/serviceResponse";
+import Sprite from "../../components/Sprite";
 
 const PokemonDetail: React.FC = () => {
   const { name } = useParams();
@@ -43,10 +44,10 @@ const PokemonDetail: React.FC = () => {
         <>
           {pokemon && (
             <>
-              <img
-                className={styles.sprite}
+              <Sprite
+                pokemonName={"name"}
                 src={pokemon?.sprites.front_default}
-                alt={`Sprite for ${pokemon?.name}`}
+                className={styles.sprite}
               />
               <ul className={styles.types}>
                 {pokemon?.types?.map((type) => (
