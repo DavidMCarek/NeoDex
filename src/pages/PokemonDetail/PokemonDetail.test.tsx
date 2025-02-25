@@ -1,5 +1,5 @@
 import { act, render, screen, waitFor } from "@testing-library/react";
-import { MemoryRouter, Route, Routes, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PokemonDetail from "./PokemonDetail";
 import { getOnePokemon } from "../../services/pokemonService";
 import { PokemonDetailResponse } from "../../types/pokeApiDetail";
