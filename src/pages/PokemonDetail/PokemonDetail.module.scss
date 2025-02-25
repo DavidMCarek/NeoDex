@@ -10,6 +10,19 @@
   @include mixins.layout-constrained;
 }
 
+.back {
+  border: none;
+  background-color: colors.$dark-blue;
+  color: colors.$primary-yellow;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-right: auto;
+  cursor: pointer;
+
+  @include mixins.focus-styles;
+}
+
 .header {
   text-transform: capitalize;
   margin: 0 auto;

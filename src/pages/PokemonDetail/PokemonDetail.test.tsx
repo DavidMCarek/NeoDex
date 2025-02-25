@@ -1,5 +1,5 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
-import { useParams } from "react-router-dom";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { useNavigate, useParams } from "react-router-dom";
 import PokemonDetail from "./PokemonDetail";
 import { getOnePokemon } from "../../services/pokemonService";
 import { PokemonDetailResponse } from "../../types/pokeApiDetail";
@@ -7,6 +7,7 @@ import { ErrorType } from "../../types/serviceResponse";
 
 vi.mock("react-router-dom", () => ({
   useParams: vi.fn(),
+  useNavigate: vi.fn(),
 }));
 
 vi.mock("../../services/pokemonService", () => ({
@@ -76,5 +77,19 @@ describe("PokemonDetail", () => {
     await waitFor(() => {
       expect(screen.getByText("Something went wrong.")).toBeInTheDocument();
     });
+  });
+
+  it("should navigate back when 'Go back' button pressed", async () => {
+    vi.mocked(getOnePokemon).mockResolvedValue({ hasError: false, data: mockPokemon });
+
+    const mockNavigate = vi.fn();
+    vi.mocked(useNavigate).mockReturnValue(mockNavigate);
+
+    await act(async () => render(<PokemonDetail />));
+
+    const goBackButton = screen.getByText("Go back");
+    fireEvent.click(goBackButton);
+
+    expect(mockNavigate).toHaveBeenCalledWith(-1);
   });
 });

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOnePokemon } from "../../services/pokemonService";
 import { PokemonDetailResponse } from "../../types/pokeApiDetail";
 import styles from "./PokemonDetail.module.scss";
@@ -9,6 +9,7 @@ import Sprite from "../../components/Sprite";
 
 const PokemonDetail: React.FC = () => {
   const { name } = useParams();
+  const navigate = useNavigate();
   const [pokemon, setPokemon] = useState<PokemonDetailResponse | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
 
@@ -36,8 +37,15 @@ const PokemonDetail: React.FC = () => {
     populatePokemon();
   }, [name]);
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <main className={styles.main}>
+      <button className={styles.back} onClick={goBack}>
+        Go back
+      </button>
       <h1 className={styles.header}>{name}</h1>
       {errorMessage && <p>{errorMessage}</p>}
       {!errorMessage && (
@@ -45,7 +53,7 @@ const PokemonDetail: React.FC = () => {
           {pokemon && (
             <>
               <Sprite
-                pokemonName={"name"}
+                pokemonName={pokemon.name}
                 src={pokemon?.sprites.front_default}
                 className={styles.sprite}
               />
