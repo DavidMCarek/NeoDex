@@ -29,7 +29,13 @@ const PokemonListItem: React.FC<Props> = ({ pokemon }) => {
   return (
     <li className={styles.item}>
       <Link className={styles.link} to={`/pokemon/${pokemon.name}`}>
-        {sprite && <img className={styles.sprite} src={sprite} />}
+        {sprite && (
+          <img
+            className={styles.sprite}
+            src={sprite}
+            alt={`Sprite for ${pokemon.name}`}
+          />
+        )}
         {!sprite && detailFetched && <span className={styles.noImage}>No image</span>}
         <strong className={styles.name}>{pokemon.name}</strong>
         <span className={styles.dexNo}>DexNo: {urlToDexNo(pokemon.url)}</span>

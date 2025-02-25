@@ -1,6 +1,7 @@
 @use "../../styles/breakpoints";
 @use "../../styles/mixins";
 @use "../../styles/sizes";
+@use "../../styles/colors";
 
 .main {
   @include mixins.layout-constrained;
@@ -8,7 +9,7 @@
 
 .header {
   margin: 0;
-  background-color: white;
+  background-color: colors.$white;
 
   @include mixins.container-padding;
 

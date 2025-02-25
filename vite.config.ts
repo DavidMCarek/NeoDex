@@ -13,4 +13,7 @@ export default defineConfig({
     exclude: ["node_modules"],
     setupFiles: "./vitest.setup.ts",
   },
+  preview: {
+    allowedHosts: ["bf2a-184-56-158-112.ngrok-free.app"],
+  },
 });
