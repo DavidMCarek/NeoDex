@@ -41,54 +41,58 @@ const PokemonDetail: React.FC = () => {
       {errorMessage && <p>{errorMessage}</p>}
       {!errorMessage && (
         <>
-          <img
-            className={styles.sprite}
-            src={pokemon?.sprites.front_default}
-            alt={`Sprite for ${pokemon?.name}`}
-          />
-          <ul className={styles.types}>
-            {pokemon?.types?.map((type) => (
-              <li key={type.type.name} className={`${styles.type} ${type.type.name}`}>
-                {type.type.name}
-              </li>
-            ))}
-          </ul>
-          <dl className={styles.descriptionList}>
-            <dt className={styles.descriptionTitle}>Height</dt>
-            <dd className={styles.descriptionDetails}>
-              {convertDmToFeetInches(pokemon?.height ?? 0)}
-            </dd>
-            <dt className={styles.descriptionTitle}>Weight</dt>
-            <dd className={styles.descriptionDetails}>
-              {convertHgToLbs(pokemon?.weight ?? 0)}
-            </dd>
-          </dl>
-          {(pokemon?.game_indices?.length ?? 0) > 0 && (
+          {pokemon && (
             <>
-              <h2 className={styles.gamesHeader}>Games</h2>
-              <ul className={styles.games}>
-                {pokemon?.game_indices?.map((game) => (
-                  <li
-                    key={game.version.name}
-                    className={`${styles.game} ${game.version.name}`}
-                  >
-                    {game.version.name}
+              <img
+                className={styles.sprite}
+                src={pokemon?.sprites.front_default}
+                alt={`Sprite for ${pokemon?.name}`}
+              />
+              <ul className={styles.types}>
+                {pokemon?.types?.map((type) => (
+                  <li key={type.type.name} className={`${styles.type} ${type.type.name}`}>
+                    {type.type.name}
                   </li>
                 ))}
               </ul>
-            </>
-          )}
-          {pokemon?.cries?.latest && (
-            <>
-              <h2 className={styles.cryHeader}>Cry</h2>
-              <audio className={styles.cry} controls>
-                <source
-                  src={pokemon?.cries?.latest}
-                  type="audio/ogg"
-                  data-testid="source-pokemon-cry"
-                />
-                Your browser does not support the audio element.
-              </audio>
+              <dl className={styles.descriptionList}>
+                <dt className={styles.descriptionTitle}>Height</dt>
+                <dd className={styles.descriptionDetails}>
+                  {convertDmToFeetInches(pokemon?.height ?? 0)}
+                </dd>
+                <dt className={styles.descriptionTitle}>Weight</dt>
+                <dd className={styles.descriptionDetails}>
+                  {convertHgToLbs(pokemon?.weight ?? 0)}
+                </dd>
+              </dl>
+              {(pokemon?.game_indices?.length ?? 0) > 0 && (
+                <>
+                  <h2 className={styles.gamesHeader}>Games</h2>
+                  <ul className={styles.games}>
+                    {pokemon?.game_indices?.map((game) => (
+                      <li
+                        key={game.version.name}
+                        className={`${styles.game} ${game.version.name}`}
+                      >
+                        {game.version.name}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {pokemon?.cries?.latest && (
+                <>
+                  <h2 className={styles.cryHeader}>Cry</h2>
+                  <audio className={styles.cry} controls>
+                    <source
+                      src={pokemon?.cries?.latest}
+                      type="audio/ogg"
+                      data-testid="source-pokemon-cry"
+                    />
+                    Your browser does not support the audio element.
+                  </audio>
+                </>
+              )}
             </>
           )}
         </>
